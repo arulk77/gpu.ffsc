@@ -8,5 +8,7 @@ fpath=strcat(projdir,'/matlab/vectors');
 path(path,projdir);
 path(path,strcat(projdir,'/matlab'));
 path(path,strcat(projdir,'/matlab/src'));
-%path(path,strcat(projdir,'/matlab/src/class'));
+path(path,strcat(projdir,'/matlab/src/g729'));
+path(path,strcat(projdir,'/matlab/src/class'));
+path(path,strcat(projdir,'/matlab/src/gf_arith'));
 path(path,strcat(projdir,'/matlab/wk'));
