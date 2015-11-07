@@ -2,6 +2,9 @@
 function r = gf_mult(e1,e2)
   global gf;
   global gf_m;
+
+  // Check if one of the element is zero, then 
+  // output zero
   if e1 == inf || e2 == inf
       r = gf(1,:); return
   end

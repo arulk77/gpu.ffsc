@@ -2,5 +2,5 @@
 %variable field 
 function r = gf_add(e1,e2)
   global gf;
-  r = xor(gf_mat_pos(e1),gf_mat_pos(e2));
+  r = xor(gf(gf_mat_pos(e1),:),gf(gf_mat_pos(e2),:));
 end
