@@ -18,5 +18,12 @@ Tframes = floor(rss_n/C_Frm_Sz);
 
 % For loop for the total number of frames
 for i = 1:Tframes-1
-  cur_speech(i,:) = rss((i-1)*C_Frm_Sz+1:i*C_Frm_Sz);
+  speech(i,:) = rss((i-1)*C_Frm_Sz+1:i*C_Frm_Sz);
+  speech_norm(i,:) = uint16(int32(speech(i,:)) + 2^15);
+
+  %% Convert the speech to galois field coefficient
+  for j = 1:size(speech_norm,2)
+    gf_speech_coeff(i,j,:) = gf(gf_mat_pos(speech_norm(i,j)),:);
+  end
 end
+
