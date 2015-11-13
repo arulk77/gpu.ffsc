@@ -8,6 +8,9 @@ fid = fopen(strcat(fpath,'/SPEECH.IN'),'r');
 rss = fread(fid,inf,'int16')';
 [rss_m,rss_n] = size(rss);
 
+% normalize the rss to 2^13
+norm_rss = rss.*(2^(gf_m-1)/2^15);
+
 % Sampling rate of the file is 8 KHz. 
 % Get the dimension and form the time samples
 st = (0:1:rss_n-1); 
@@ -18,8 +21,8 @@ Tframes = floor(rss_n/C_Frm_Sz);
 
 % For loop for the total number of frames
 for i = 1:Tframes-1
-  speech(i,:) = rss((i-1)*C_Frm_Sz+1:i*C_Frm_Sz);
-  speech_norm(i,:) = uint16(int32(speech(i,:)) + 2^15);
+  speech(i,:) = norm_rss((i-1)*C_Frm_Sz+1:i*C_Frm_Sz);
+  speech_norm(i,:) = uint16(int32(speech(i,:)) + 2^(gf_m-1)-1);
 
   %% Convert the speech to galois field coefficient
   for j = 1:size(speech_norm,2)
