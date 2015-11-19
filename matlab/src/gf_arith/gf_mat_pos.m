@@ -4,5 +4,6 @@ function pos = gf_mat_pos(element)
   if element == inf
     pos = 1; return;
   end
-  pos = element + 2;
+  pos = gf_norm_apow(element);
+  pos = pos + 2;
 end

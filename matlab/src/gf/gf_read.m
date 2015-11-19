@@ -9,7 +9,7 @@ rss = fread(fid,inf,'int16')';
 [rss_m,rss_n] = size(rss);
 
 % normalize the rss to 2^13
-norm_rss = rss.*(2^(gf_m-1)/2^15);
+norm_rss = floor(rss.*(2^(gf_m-1)/2^15));
 
 % Sampling rate of the file is 8 KHz. 
 % Get the dimension and form the time samples
