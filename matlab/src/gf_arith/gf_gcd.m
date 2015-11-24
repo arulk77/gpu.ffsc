@@ -24,6 +24,7 @@ function gcd = gf_gcd(p1,p2)
        else
            gcd = n;
        end
+       return
    end
 
    [q,r] = deconv(n,d);

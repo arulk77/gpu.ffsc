@@ -3,7 +3,7 @@ global gf_m gf_p Frm_Sz pg_str
 pg_str = 'gf_coder: ';
 
 %% Initialize galois field specific value
-gf_m = 12;
+gf_m = 13;
 gf_p = 2;
 
 %% Initialize the galois field
