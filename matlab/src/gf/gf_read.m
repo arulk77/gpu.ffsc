@@ -1,5 +1,7 @@
 %% Read the constants that are used in the program
 setup_gf;
+gf_m = 12;
+gf_p = 2;
 
 %% This file is to read the samples and assign to a variable 
 fid = fopen(strcat(fpath,'/SPEECH.IN'),'r');
@@ -25,8 +27,8 @@ for i = 1:Tframes-1
   speech_norm(i,:) = uint16(int32(speech(i,:)) + 2^(gf_m-1)-1);
 
   %% Convert the speech to galois field coefficient
-  for j = 1:size(speech_norm,2)
-    gf_speech_coeff(i,j,:) = gf(gf_mat_pos(speech_norm(i,j)),:);
-  end
+  %%for j = 1:size(speech_norm,2)
+  %%  gf_speech_coeff(i,j,:) = gf(gf_mat_pos(speech_norm(i,j)),:);
+  %%end
 end
 
